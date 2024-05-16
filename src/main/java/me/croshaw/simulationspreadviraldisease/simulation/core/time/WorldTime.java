@@ -1,5 +1,7 @@
 package me.croshaw.simulationspreadviraldisease.simulation.core.time;
 
+import me.croshaw.simulationspreadviraldisease.simulation.settings.MonthSettings;
+
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -7,10 +9,13 @@ import java.time.Month;
 
 public final class WorldTime {
     private LocalDateTime dateTime;
-    public WorldTime() {
-        this(LocalDateTime.of(0, 1, 1, 0,0,0));
+    private final MonthSettings settings;
+
+    public WorldTime(MonthSettings settings) {
+        this(settings, LocalDateTime.of(0, 1, 1, 0,0,0));
     }
-    public WorldTime(LocalDateTime startDate) {
+    public WorldTime(MonthSettings settings, LocalDateTime startDate) {
+        this.settings = settings;
         dateTime = startDate;
     }
     public void addTime(long secondsStep) {
@@ -30,5 +35,8 @@ public final class WorldTime {
     }
     public Month getMonth() {
         return dateTime.getMonth();
+    }
+    public float getVirusRate() {
+        return settings.getVirusRate(getMonth());
     }
 }
