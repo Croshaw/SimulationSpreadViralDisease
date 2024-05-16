@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.Month;
 
-public class WorldTime {
+public final class WorldTime {
     private LocalDateTime dateTime;
     public WorldTime() {
         this(LocalDateTime.of(0, 1, 1, 0,0,0));
