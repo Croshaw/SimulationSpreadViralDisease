@@ -17,4 +17,12 @@ public class PeopleStateSettings {
         vaccinateDuration = new ProbabilityCollection<>();
         sickDuration.add(Duration.of(2, ChronoUnit.WEEKS), 1f);
     }
+
+    public ProbabilityCollection<Duration> getVaccinateDuration() {
+        return vaccinateDuration;
+    }
+
+    public ProbabilityCollection<Duration> getSickDuration() {
+        return sickDuration;
+    }
 }
